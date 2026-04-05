@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Cookie Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🍪 Idle Cookie Game</h1>
+            <p class="subtitle">Click, upgrade, and grow your cookie empire.</p>
+        </header>
+
+        <main class="main-layout">
+            <section class="cookie-panel">
+                <h2 id="counter">0 cookies (+0/sec)</h2>
+                <button id="cookieBtn" class="cookie-button" onclick="clickCookie()">🍪</button>
+
+                <div id="floating-container"></div>
+                <p class="hint">Click the cookie to earn more.</p>
+
+                <div class="actions">
+                    <button class="danger-button" onclick="resetGame()">Reset Game</button>
+                </div>
+            </section>
+
+            <section class="right-panel">
+                <section class="shop-panel">
+                    <h3>Upgrades</h3>
+
+                    <div class="upgrade-card">
+                        <div>
+                            <h4>Auto Clicker</h4>
+                            <p>Produces 1 cookie per second</p>
+                            <p>Owned: <span id="autoCount">0</span></p>
+                        </div>
+                        <button onclick="buyAutoClicker()">
+                            Buy (<span id="autoCost">10</span>)
+                        </button>
+                    </div>
+
+                    <div class="upgrade-card">
+                        <div>
+                            <h4>Grandma</h4>
+                            <p>Produces 5 cookies per second</p>
+                            <p>Owned: <span id="grandmaCount">0</span></p>
+                        </div>
+                        <button onclick="buyGrandma()">
+                            Buy (<span id="grandmaCost">50</span>)
+                        </button>
+                    </div>
+
+                    <div class="upgrade-card">
+                        <div>
+                            <h4>Farm 🌾</h4>
+                            <p>Produces 25 cookies per second</p>
+                            <p>Owned: <span id="farmCount">0</span></p>
+                        </div>
+                        <button onclick="buyFarm()">
+                            Buy (<span id="farmCost">250</span>)
+                        </button>
+                    </div>
+
+                    <div class="upgrade-card">
+                        <div>
+                            <h4>Factory 🏭</h4>
+                            <p>Produces 120 cookies per second</p>
+                            <p>Owned: <span id="factoryCount">0</span></p>
+                        </div>
+                        <button onclick="buyFactory()">
+                            Buy (<span id="factoryCost">1500</span>)
+                        </button>
+                    </div>
+                </section>
+
+                <section class="stats-panel">
+                    <h3>Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Total Cookies</span>
+                            <span class="stat-value" id="totalCookies">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Cookies / sec</span>
+                            <span class="stat-value" id="cookiesPerSecond">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Total Clicks</span>
+                            <span class="stat-value" id="totalClicks">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Total Producers</span>
+                            <span class="stat-value" id="totalProducers">0</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="prestige-panel">
+                    <h3>Prestige</h3>
+                    <p>Prestige Points: <span id="prestigePoints">0</span></p>
+                    <p>Production Bonus: <span id="prestigeBonus">1.0</span>x</p>
+                    <p>You will gain <span id="prestigeGain">0</span> prestige point(s) if you prestige now.</p>
+                    <button class="prestige-button" onclick="prestigeReset()">Prestige Reset</button>
+                </section>
+
+                <section class="achievements-panel">
+                    <h3>Achievements</h3>
+                    <div id="achievementsList" class="achievements-list"></div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h3 id="modalTitle">Welcome back!</h3>
+            <p id="modalMessage">You earned cookies while away.</p>
+            <button class="modal-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
